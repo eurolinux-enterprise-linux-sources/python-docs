@@ -4,7 +4,7 @@ Implements the Distutils 'build_py' command."""
 
 # This module should be kept compatible with Python 2.1.
 
-__revision__ = "$Id: build_py.py 77376 2010-01-08 23:27:23Z tarek.ziade $"
+__revision__ = "$Id: build_py.py 83648 2010-08-03 07:51:50Z ezio.melotti $"
 
 import string, os
 from types import *
@@ -157,7 +157,7 @@ class build_py (Command):
 
         if not self.package_dir:
             if path:
-                return apply(os.path.join, path)
+                return os.path.join(*path)
             else:
                 return ''
         else:
@@ -184,7 +184,7 @@ class build_py (Command):
                     tail.insert(0, pdir)
 
                 if tail:
-                    return apply(os.path.join, tail)
+                    return os.path.join(*tail)
                 else:
                     return ''
 

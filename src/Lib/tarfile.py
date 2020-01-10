@@ -30,13 +30,13 @@
 """Read from and write to tar format archives.
 """
 
-__version__ = "$Revision: 76386 $"
+__version__ = "$Revision: 81664 $"
 # $Source$
 
 version     = "0.9.0"
 __author__  = "Lars Gustäbel (lars@gustaebel.de)"
-__date__    = "$Date: 2009-11-18 16:09:35 -0500 (Wed, 18 Nov 2009) $"
-__cvsid__   = "$Id: tarfile.py 76386 2009-11-18 21:09:35Z lars.gustaebel $"
+__date__    = "$Date: 2010-06-03 06:07:08 -0400 (Thu, 03 Jun 2010) $"
+__cvsid__   = "$Id: tarfile.py 81664 2010-06-03 10:07:08Z lars.gustaebel $"
 __credits__ = "Gustavo Niemeyer, Niels Gustäbel, Richard Townsend."
 
 #---------
@@ -370,7 +370,7 @@ class _LowLevelFile:
         }[mode]
         if hasattr(os, "O_BINARY"):
             mode |= os.O_BINARY
-        self.fd = os.open(name, mode)
+        self.fd = os.open(name, mode, 0666)
 
     def close(self):
         os.close(self.fd)
@@ -1880,7 +1880,7 @@ class TarFile(object):
         tarinfo.mode = stmd
         tarinfo.uid = statres.st_uid
         tarinfo.gid = statres.st_gid
-        if stat.S_ISREG(stmd):
+        if type == REGTYPE:
             tarinfo.size = statres.st_size
         else:
             tarinfo.size = 0L

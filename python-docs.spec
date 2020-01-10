@@ -13,7 +13,7 @@
 
 Summary: Documentation for the Python programming language
 Name: %{python}-docs
-Version: 2.6.5
+Version: 2.6.6
 Release: 2%{?dist}
 License: Python
 Group: Documentation
@@ -67,6 +67,13 @@ rm -fr $RPM_BUILD_ROOT
 %doc LICENSE
 
 %changelog
+* Mon Nov 29 2010 David Malcolm <dmalcolm@redhat.com> - 2.6.6-2
+- rebuild
+
+* Mon Nov 29 2010 David Malcolm <dmalcolm@redhat.com> - 2.6.6-1
+- rebase to 2.6.6 to track the main python package
+Related: rhbz#627301
+
 * Tue Jul 13 2010 David Malcolm <dmalcolm@redhat.com> - 2.6.5-2
 - rebuild
 

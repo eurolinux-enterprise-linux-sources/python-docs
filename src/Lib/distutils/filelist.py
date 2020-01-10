@@ -6,7 +6,7 @@ and building lists of files.
 
 # This module should be kept compatible with Python 2.1.
 
-__revision__ = "$Id: filelist.py 76044 2009-11-01 23:04:26Z tarek.ziade $"
+__revision__ = "$Id: filelist.py 83648 2010-08-03 07:51:50Z ezio.melotti $"
 
 import os, string, re
 import fnmatch
@@ -68,7 +68,7 @@ class FileList:
         sortable_files.sort()
         self.files = []
         for sort_tuple in sortable_files:
-            self.files.append(apply(os.path.join, sort_tuple))
+            self.files.append(os.path.join(*sort_tuple))
 
 
     # -- Other miscellaneous utility methods ---------------------------
