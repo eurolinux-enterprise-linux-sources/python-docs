@@ -20,7 +20,7 @@ Summary: Documentation for the Python programming language
 Name: %{python}-docs
 # The Version needs to be in-sync with the "python" package:
 Version: 2.7.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 License: Python
 Group: Documentation
 Source: http://www.python.org/ftp/python/%{version}/Python-%{version}.tar.bz2
@@ -31,7 +31,7 @@ Patch18: python-2.6-extdocmodules.patch
 
 Requires: %{python} = %{version}
 %if %{main_python}
-Obsoletes: python2-docs
+Obsoletes: python2-docs < %{version}-%{release}
 Provides: python2-docs = %{version}
 %endif
 
@@ -93,6 +93,10 @@ linkchecker \
 %doc Misc/HISTORY Doc/build/html
 
 %changelog
+* Thu May 09 2019 Charalampos Stratakis <cstratak@redhat.com> - 2.7.5-3
+- Remove unversioned obsoletes
+Resolves: rhbz#1703605
+
 * Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 2.7.5-2
 - Mass rebuild 2013-12-27
 
