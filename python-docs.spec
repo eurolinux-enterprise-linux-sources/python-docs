@@ -95,7 +95,7 @@ linkchecker \
 %changelog
 * Thu May 09 2019 Charalampos Stratakis <cstratak@redhat.com> - 2.7.5-3
 - Remove unversioned obsoletes
-Resolves: rhbz#1703605
+Resolves: rhbz#1708673
 
 * Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 2.7.5-2
 - Mass rebuild 2013-12-27
